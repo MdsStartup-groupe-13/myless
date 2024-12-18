@@ -1,4 +1,4 @@
-import '../app/globals.css'
+import './globals.css'
 import { ReactNode } from 'react'
 import Navbar from '../components/Navbar'
 import Header from '../components/Header'
