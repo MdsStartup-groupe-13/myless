@@ -24,7 +24,7 @@ export default function Header() {
       {/* Logo centré */}
       <div className="flex items-center justify-center">
         <Image
-          src="/images/myless.svg" // Remplacez par le chemin de votre logo
+          src="/images/myless.svg"
           alt="Logo Myless"
           width={100}
           height={40}
@@ -35,7 +35,7 @@ export default function Header() {
       {/* Icône utilisateur */}
       <div className="flex items-center cursor-pointer hover:opacity-80 transition">
         <Image
-          src="/images/man.png" // Remplacez par le chemin de votre icône utilisateur
+          src="/images/man.png"
           alt="User Icon"
           width={26}
           height={26}
