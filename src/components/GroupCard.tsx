@@ -1,21 +1,29 @@
-import Image from 'next/image'
+import Image from 'next/image';
+import { useRouter } from 'next/navigation'; // Next.js router
 
 interface GroupCardProps {
-  name: string
-  members: number
+  name: string;
+  members: number;
+  imageSrc: string; // Nouvelle propriété pour l'image unique
 }
 
-export default function GroupCard({ name, members }: GroupCardProps) {
+export default function GroupCard({ name, members, imageSrc }: GroupCardProps) {
+  const router = useRouter();
+
+  const handleRedirect = () => {
+    router.push('/form'); // Redirection vers la page /form
+  };
+
   return (
     <div className="flex items-center justify-between bg-gray-200 rounded-lg p-4 shadow">
       <div className="flex items-center space-x-4">
-        {/* Icône d'image */}
-        <div className="bg-gray-400 rounded-lg p-2">
+        {/* Image du groupe */}
+        <div className="rounded-lg">
           <Image
-            src="/images/placeholder-image.png" 
+            src={imageSrc}
             alt={`Logo de ${name}`}
-            width={40}
-            height={40}
+            width={90}
+            height={90}
             className="object-cover"
           />
         </div>
@@ -25,10 +33,28 @@ export default function GroupCard({ name, members }: GroupCardProps) {
           <p className="text-sm text-gray-600">Membres : {members}</p>
         </div>
       </div>
-      {/* Flèche */}
-      <div>
-        <span className="text-gray-600">{'>'}</span>
+      {/* Icône flèche vers la droite */}
+      <div className="flex items-center space-x-4">
+        <button
+          onClick={handleRedirect}
+          className="focus:outline-none p-2 rounded-full hover:bg-gray-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            className="w-6 h-6 text-gray-700"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M8 4l8 8-8 8"
+            />
+          </svg>
+        </button>
       </div>
     </div>
-  )
+  );
 }
