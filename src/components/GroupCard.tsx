@@ -1,27 +1,60 @@
-import Image from 'next/image'
+import Image from 'next/image';
+import { useRouter } from 'next/navigation'; // Next.js router
 
 interface GroupCardProps {
-  image: string // URL de l'image (local ou externe)
-  name: string  // Nom du groupe
-  members: number // Nombre de membres
+  name: string;
+  members: number;
+  imageSrc: string; // Nouvelle propriété pour l'image unique
 }
 
-export default function GroupCard({ image, name, members }: GroupCardProps) {
+export default function GroupCard({ name, members, imageSrc }: GroupCardProps) {
+  const router = useRouter();
+
+  const handleRedirect = () => {
+    router.push('/form'); // Redirection vers la page /form
+  };
+
   return (
-    <div className="flex items-center space-x-4 bg-white shadow p-4 rounded">
-      {/* Utilisation du composant Image de Next.js */}
-      <Image 
-        src={image} 
-        alt={`Image de ${name}`} 
-        width={64} 
-        height={64} 
-        className="rounded-full object-cover"
-        priority
-      />
-      <div className="flex flex-col">
-        <h2 className="font-bold">{name}</h2>
-        <span className="text-sm text-gray-500">{members} membres</span>
+    <div className="flex items-center justify-between bg-gray-200 rounded-lg p-4 shadow">
+      <div className="flex items-center space-x-4">
+        {/* Image du groupe */}
+        <div className="rounded-lg">
+          <Image
+            src={imageSrc}
+            alt={`Logo de ${name}`}
+            width={90}
+            height={90}
+            className="object-cover"
+          />
+        </div>
+        {/* Détails du groupe */}
+        <div>
+          <h3 className="font-bold text-lg">{name}</h3>
+          <p className="text-sm text-gray-600">Membres : {members}</p>
+        </div>
+      </div>
+      {/* Icône flèche vers la droite */}
+      <div className="flex items-center space-x-4">
+        <button
+          onClick={handleRedirect}
+          className="focus:outline-none p-2 rounded-full hover:bg-gray-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            className="w-6 h-6 text-gray-700"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M8 4l8 8-8 8"
+            />
+          </svg>
+        </button>
       </div>
     </div>
-  )
+  );
 }

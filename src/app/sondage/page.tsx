@@ -1,4 +1,8 @@
-import GroupCard from '@/components/GroupCard'
+import NoAnswered from "@/components/pool/NoAnswered"
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { PollResult } from "@/components/pool/PollResult"
+import { CompletedPolls } from "@/data/CompletedPolls"
+import { LuSlidersHorizontal } from "react-icons/lu"
 
 interface Group {
   id: number
@@ -7,47 +11,33 @@ interface Group {
   image: string
 }
 
-export default function HomePage() {
-  const groups: Group[] = [
-    { 
-      id: 1, 
-      name: 'Les Aventuriers', 
-      members: 12, 
-      image: '/images/group1.jpg'
-    },
-    { 
-      id: 2, 
-      name: 'Développeurs JS', 
-      members: 45, 
-      image: '/images/group2.jpg'
-    },
-    {
-      id: 3,
-      name: 'Fan de React',
-      members: 30,
-      image: '/images/group3.jpg'
-    },
-    {
-      id: 4,
-      name: 'Photographes amateurs',
-      members: 7,
-      image: '/images/group4.jpg'
-    },
-  ]
+export default function Sondage() {
 
   return (
-    <div>
-      <h1 className="text-xl font-bold mb-4">Liste des Groupes</h1>
-      <div className="space-y-4">
-        {groups.map((group) => (
-          <GroupCard 
-            key={group.id} 
-            name={group.name} 
-            members={group.members} 
-            image={group.image} 
-          />
-        ))}
+    <div className="p-4">
+      {/* Titre de la section */}
+      <h1 className="text-2xl font-bold text-center mb-8">Sondages</h1>
+      
+      <div className="mb-12">
+        <div className="flex justify-between items-center mb-4">
+        <h2 className="text-lg font-semibold">Catégories</h2>
+          <button className="flex items-center text-[8px] text-gray-60">
+            Filter par Catégories
+            <LuSlidersHorizontal size={16} className="ml-2" />
+          </button>
+        </div>
       </div>
+
+      <NoAnswered />
+
+      <h2 className="text-lg font-semibold mt-4 mb-2">Mes Sondages</h2>
+      <ScrollArea className="h-[calc(100vh-12rem)] rounded-lg">
+          <div className="space-y-4">
+            {CompletedPolls.map((poll) => (
+                <PollResult key={poll.id} poll={poll} />
+            ))}
+          </div>
+      </ScrollArea>
     </div>
   )
 }
