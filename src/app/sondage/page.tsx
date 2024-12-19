@@ -22,7 +22,6 @@ export default function Sondage() {
         <div className="flex justify-between items-center mb-4">
         <h2 className="text-lg font-semibold">Catégories</h2>
           <button className="flex items-center text-[8px] text-gray-60">
-            Filter par Catégories
             <LuSlidersHorizontal size={16} className="ml-2" />
           </button>
         </div>

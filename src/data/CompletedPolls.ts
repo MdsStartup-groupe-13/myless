@@ -9,7 +9,7 @@ export const CompletedPolls: CompletedPoll[] = [
         results: [
             { option: "Musée du Louvre", votes: 3, percentage: 3 },
             { option: "Tour Eiffel", votes: 4, percentage: 4 },
-            { option: "Parc des Buttes-Chaumont", votes: 1, percentage: 1 },
+            { option: "Parc des Buttes-Chaumont", votes: 2, percentage: 1 },
             { option: "Restaurant Le Procope", votes: 15, percentage: 15 },
             { option: "Croisière sur la Seine", votes: 5, percentage: 5 },
         ],
