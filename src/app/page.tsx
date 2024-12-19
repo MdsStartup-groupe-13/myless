@@ -1,4 +1,4 @@
-import GroupCard from '../components/GroupCard'
+import Sondage from './sondage/page'
 
 interface Group {
   id: number
@@ -21,13 +21,7 @@ export default function HomePage() {
 
       {/* Liste des groupes */}
       <div className="space-y-4">
-        {groups.map((group) => (
-          <GroupCard
-            key={group.id}
-            name={group.name}
-            members={group.members}
-          />
-        ))}
+        <Sondage />
       </div>
 
       {/* Lien Voir Plus */}
