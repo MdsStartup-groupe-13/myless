@@ -1,18 +1,18 @@
-import Image from 'next/image';
-import { useRouter } from 'next/navigation'; // Next.js router
+import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 
 interface GroupCardProps {
-  name: string;
-  members: number;
-  imageSrc: string; // Nouvelle propriété pour l'image unique
+  name: string
+  members: number
+  imageSrc: string
 }
 
 export default function GroupCard({ name, members, imageSrc }: GroupCardProps) {
-  const router = useRouter();
+  const router = useRouter()
 
   const handleRedirect = () => {
-    router.push('/form'); // Redirection vers la page /form
-  };
+    router.push('/form')
+  }
 
   return (
     <div className="flex items-center justify-between bg-gray-200 rounded-lg p-4 shadow">
@@ -56,5 +56,5 @@ export default function GroupCard({ name, members, imageSrc }: GroupCardProps) {
         </button>
       </div>
     </div>
-  );
+  )
 }
