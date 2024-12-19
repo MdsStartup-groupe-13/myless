@@ -10,30 +10,30 @@ interface PollResultProps {
 export function PollResult({ poll }: PollResultProps) {
     return (
         <Card className="w-full mb-4 hover:shadow-lg transition-shadow">
-        <CardHeader>
+            <CardHeader>
             <CardTitle className="text-xl font-semibold text-primary">
-            {poll.title}
+                Sondage : {poll.lieu}
             </CardTitle>
             <div className="text-sm text-muted-foreground">
-                Ended {formatDate(poll.endDate)} • {poll.totalVotes.toLocaleString()} votes
+                Fin des votes : {poll.endDate} • {poll.totalVotes.toLocaleString()} votes
             </div>
-        </CardHeader>
-        <CardContent>
+            </CardHeader>
+            <CardContent>
             <p className="text-lg mb-4">{poll.question}</p>
             <div className="space-y-4">
-            {poll.results.map((result, index) => (
+                {poll.results.map((result, index) => (
                 <div key={index} className="space-y-2">
-                <div className="flex justify-between text-sm">
+                    <div className="flex justify-between text-sm">
                     <span>{result.option}</span>
                     <span className="font-medium">
-                    {result.votes.toLocaleString()} ({result.percentage}%)
+                        {result.votes.toLocaleString()} votes
                     </span>
+                    </div>
+                    <ResultBar percentage={result.percentage} color={"black"} />
                 </div>
-                <ResultBar percentage={result.percentage} color={"black"} />
-                </div>
-            ))}
+                ))}
             </div>
-        </CardContent>
+            </CardContent>
         </Card>
     )
 }
