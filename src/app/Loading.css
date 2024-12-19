@@ -1,0 +1,37 @@
+/* Variables pour les couleurs */
+:root {
+    --insh-worm: #c2e920;
+    --medium-purple: #8a85e3;
+    --quartz: #dad9f5;
+    --ivory: #fcffef;
+    --electric-purple: #a600ff;
+  }
+  
+  /* Conteneur principal */
+  .loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Prend toute la hauteur de l'écran */
+    width: 100vw; /* Prend toute la largeur de l'écran */
+    background-color: var(--ivory); /* Fond de couleur Ivory */
+    position: fixed; /* Fixé sur l'écran */
+    top: 0;
+    left: 0;
+    z-index: 9999; /* Passe au-dessus des autres éléments */
+  }
+  
+  /* Styles du loader */
+  svg {
+    width: 80px; 
+    height: 80px;
+  }
+  
+  /* Responsiveness */
+  @media (min-width: 768px) {
+    svg {
+      width: 120px; 
+      height: 120px;
+    }
+  }
+  

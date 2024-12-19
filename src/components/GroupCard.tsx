@@ -1,21 +1,28 @@
-import Image from 'next/image'
+import Image from 'next/image';
 
 interface GroupCardProps {
-  name: string
-  members: number
+  name: string;
+  members: number;
+  imageSrc: string; // Nouvelle propriété pour l'image unique
+  onFeedbackClick: () => void; // Gestionnaire d'événement pour le formulaire
 }
 
-export default function GroupCard({ name, members }: GroupCardProps) {
+export default function GroupCard({
+  name,
+  members,
+  imageSrc,
+  onFeedbackClick,
+}: GroupCardProps) {
   return (
     <div className="flex items-center justify-between bg-gray-200 rounded-lg p-4 shadow">
       <div className="flex items-center space-x-4">
-        {/* Icône d'image */}
-        <div className="bg-gray-400 rounded-lg p-2">
+        {/* Image du groupe */}
+        <div className="rounded-lg">
           <Image
-            src="/images/placeholder-image.png" 
+            src={imageSrc}
             alt={`Logo de ${name}`}
-            width={40}
-            height={40}
+            width={90}
+            height={90}
             className="object-cover"
           />
         </div>
@@ -25,10 +32,18 @@ export default function GroupCard({ name, members }: GroupCardProps) {
           <p className="text-sm text-gray-600">Membres : {members}</p>
         </div>
       </div>
-      {/* Flèche */}
-      <div>
-        <span className="text-gray-600">{'>'}</span>
+      {/* Icône de feedback */}
+      <div className="flex items-center space-x-4">
+        <button onClick={onFeedbackClick} className="focus:outline-none">
+          <Image
+            src="/images/feedback.png"
+            alt="Feedback"
+            width={24}
+            height={24}
+            className="cursor-pointer"
+          />
+        </button>
       </div>
     </div>
-  )
+  );
 }
