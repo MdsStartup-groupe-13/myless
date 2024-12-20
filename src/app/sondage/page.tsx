@@ -11,14 +11,13 @@ export default function Sondage() {
       {/* Titre de la section */}
       <h1 className="text-2xl font-bold text-center mb-8">Sondages</h1>
       
-      <div className="mb-12">
+      {/* <div className="mb-12">
         <div className="flex justify-between items-center mb-4">
-        <h2 className="text-lg font-semibold">Catégories</h2>
           <button className="flex items-center text-[8px] text-gray-60">
             <LuSlidersHorizontal size={16} className="ml-2" />
           </button>
         </div>
-      </div>
+      </div> */}
 
       <NoAnswered />
 
