@@ -4,13 +4,6 @@ import { PollResult } from "@/components/pool/PollResult"
 import { CompletedPolls } from "@/data/CompletedPolls"
 import { LuSlidersHorizontal } from "react-icons/lu"
 
-interface Group {
-  id: number
-  name: string
-  members: number
-  image: string
-}
-
 export default function Sondage() {
 
   return (

@@ -1,7 +1,6 @@
 import { CompletedPoll } from "@/types/poll"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ResultBar } from "@/components/pool/ResultBar"
-import { formatDate } from "@/lib/utils"
 
 interface PollResultProps {
     poll: CompletedPoll;
