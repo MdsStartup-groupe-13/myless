@@ -2,7 +2,6 @@ import NoAnswered from "@/components/pool/NoAnswered"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { PollResult } from "@/components/pool/PollResult"
 import { CompletedPolls } from "@/data/CompletedPolls"
-import { LuSlidersHorizontal } from "react-icons/lu"
 
 export default function Sondage() {
 
@@ -11,14 +10,6 @@ export default function Sondage() {
       {/* Titre de la section */}
       <h1 className="text-2xl font-bold text-center mb-8">Sondages</h1>
       
-      {/* <div className="mb-12">
-        <div className="flex justify-between items-center mb-4">
-          <button className="flex items-center text-[8px] text-gray-60">
-            <LuSlidersHorizontal size={16} className="ml-2" />
-          </button>
-        </div>
-      </div> */}
-
       <NoAnswered />
 
       <h2 className="text-lg font-semibold mt-4 mb-2">Mes Sondages</h2>
