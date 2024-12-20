@@ -123,16 +123,16 @@ const handleFinish = () => {
             <h2 className="text-lg font-semibold text-center mb-3">Choisir un Budget</h2>
             <div className="flex items-center space-x-4 py-4">
 
-              <span className="text-gray-600 text-sm">300€</span>
+              <span className="text-gray-600 text-sm">0€</span>
               <input
                 type="range"
-                min={300}
-                max={700}
+                min={0}
+                max={2000}
                 value={budget}
                 onChange={(e) => handleBudgetChange(Number(e.target.value))}
                 className="w-full h-2 bg-blue-200 rounded-lg cursor-pointer"
               />
-              <span className="text-gray-600 text-sm">700€</span>
+              <span className="text-gray-600 text-sm">2000€</span>
             </div>
             <p className="text-gray-600 mt-2 text-center text-sm">
               Budget sélectionné : <span className="font-bold">{budget}€</span>
