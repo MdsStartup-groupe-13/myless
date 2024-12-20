@@ -24,7 +24,7 @@ export default function NoAnswered() {
 return (
     <div>
         <h2 className="text-xl font-semibold">Sondages non répondus</h2>
-        <p className='my-4'>Vous n'avez pas encore répondu à ce sondage !</p>
+        <p className='my-4'>Vous n&apos;avez pas encore répondu à ce sondage !</p>
         <Card className="w-full mb-4 hover:shadow-lg transition-shadow">
             <CardHeader>
                 <CardTitle className="text-xl font-semibold text-primary">
